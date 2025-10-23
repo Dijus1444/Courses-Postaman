@@ -7,11 +7,11 @@ app.use(express.json());
 mongoose.connect("mongodb+srv://dijusbubnys144_db_user:Sjrh1Gu88NO2w9JG@cluster0.nvd5lau.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(() => console.log("connected to DB"))
 .catch((error) => console.log(error));
-const { createCourse, getallrecords} = require("./coursescontrroller");
+const { createCourse, getallrecords, findOneCourse} = require("./coursescontrroller");
 
 app.post("/courses", createCourse);
 app.get("/allcourses", getallrecords);
-
+app.get("/course/:id", findOneCourse);
 
 ////////////////////////////////////////////////////////////////////
 app.listen(5050, () => console.log("Serveris veikia, port 5050"));

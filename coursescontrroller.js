@@ -30,6 +30,24 @@ if (myCoursesFromDB.length === 0){
         res.status(500).json({error: "internal server error, Something went wrong"});
     }
 };
+// READ BY ID
+// GET
+const findOneCourse = async (req,res) => {
+    try {
+        const {id} = req.params;
+        const oneCourse = await Course.findById(id);
 
+        if (!oneCourse) {
+            return res
+                .status(404)
+                .json({message: "Such a course does not exist in DB"});
+        }
 
-module.exports = {createCourse, getallrecords};
+        res.status(200).json({oneCourse});
+    } catch (err){
+        console.log(err);
+        res.status(500).json({error: "internal server error. Something went wrong"});
+    }
+}
+
+module.exports = {createCourse, getallrecords, findOneCourse};
