@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const cors = require('cors');
 app.use(express.json());
+app.use(cors());
 
 // mongodb+srv://<db_username>:<db_password>@cluster0.nvd5lau.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 mongoose.connect("mongodb+srv://dijusbubnys144_db_user:Sjrh1Gu88NO2w9JG@cluster0.nvd5lau.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")

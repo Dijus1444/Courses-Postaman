@@ -1,5 +1,5 @@
-const courses = require("./courses.js");
-const Course = require("./courses.js");
+const courses = require("./Courses.js");
+const Course = require("./Courses.js");
 
 console.log(Course)
 
@@ -25,7 +25,7 @@ if (myCoursesFromDB.length === 0){
 }
 
 
-    res.status(200).json({myCoursesFromDB});
+    res.status(200).json(myCoursesFromDB);
     } catch (err) {
         console.log(err);
         res.status(500).json({error: "internal server error, Something went wrong"});
@@ -44,7 +44,7 @@ const findOneCourse = async (req,res) => {
                 .json({message: "Such a course does not exist in DB"});
         }
 
-        res.status(200).json({oneCourse});
+        res.status(200).json(oneCourse);
     } catch (err){
         console.log(err);
         res.status(500).json({error: "internal server error. Something went wrong"});
